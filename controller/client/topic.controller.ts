@@ -6,5 +6,7 @@ export const topic = async (req: Request, res: Response) => {
     delete: false,
   });
   console.log(topics);
-  res.render("client/page/topic/index");
+  res.render("client/page/topic/index", {
+    pageTitle: "Chủ đề bài hát",
+  });
 };
