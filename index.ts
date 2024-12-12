@@ -7,6 +7,7 @@ dotenv.config();
 database.connect();
 const app: Express = express();
 const port: string = process.env.PORT;
+app.use(express.static("public"));
 app.set("views", "./views");
 app.set("view engine", "pug");
 //clientRouter
