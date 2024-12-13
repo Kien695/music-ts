@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Topic from "../../models/topic.model";
 import Song from "../../models/song.model";
 import Singer from "../../models/singer.model";
-import Favorite from "../../models/favorite-song.model.ts";
+import Favorite from "../../models/favorite-song.model";
 //[get]/song/slug
 export const list = async (req: Request, res: Response) => {
   const topic = await Topic.findOne({
