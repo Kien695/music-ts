@@ -1,1 +1,42 @@
-console.log("ok");
+//APlayer
+const aplayer = document.querySelector("#aplayer");
+if (aplayer) {
+  let dataSong = aplayer.getAttribute("data-song");
+  dataSong = JSON.parse(dataSong);
+
+  let dataSinger = aplayer.getAttribute("data-singer");
+  dataSinger = JSON.parse(dataSinger);
+
+  const ap = new APlayer({
+    container: aplayer,
+    audio: [
+      {
+        name: dataSong.title,
+        artist: dataSinger.fullName,
+        url: dataSong.audio,
+        cover: dataSong.avatar,
+      },
+    ],
+    autoplay: true,
+  });
+  const avatar = document.querySelector(".singer-detail .inner-avatar");
+  console.log(avatar);
+  ap.on("play", function () {
+    avatar.style.animationPlayState = "running";
+  });
+  ap.on("pause", function () {
+    avatar.style.animationPlayState = "paused";
+  });
+}
+// const ap = new APlayer({
+//   container: document.getElementById("aplayer"),
+//   audio: [
+//     {
+//       name: "name",
+//       artist: "artist",
+//       url: "https://backend.daca.vn/assets/audios/cat-doi-noi-sau.mp3",
+//       cover: "https://backend.daca.vn/assets/images/cat-doi-noi-sau.jpg",
+//     },
+//   ],
+// });
+//end APlayer
