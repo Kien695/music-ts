@@ -97,53 +97,60 @@
 }
 /* end song-item */
 /* singer-detail */
-.inner-title {
+.singer-detail .inner-title {
   font-size: 24px;
   font-weight: bold;
-  color: #222;
   margin-bottom: 10px;
   color: #f57f20;
 }
 
-.inner-action {
+.singer-detail .inner-action {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  color: #555;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
-.inner-action div {
-  margin-right: 15px;
-  display: flex;
+.singer-detail .inner-actions .inner-action {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  display: inline-flex;
   align-items: center;
+  font-weight: 600;
+  color: #646464;
 }
 
-.inner-action i {
+.singer-detail .inner-actions .inner-action i {
+  font-size: 16px;
   margin-right: 5px;
-  color: #f57f20;
 }
-
-.inner-play {
+.singer-detail .inner-actions .inner-like {
+  cursor: pointer;
+}
+.singer-detail .inner-actions .inner-like i {
+  color: #0059ff;
+}
+.singer-detail .inner-actions .inner-like.active {
+  color: #0059ff;
+}
+.singer-detail .inner-actions .inner-like.active i {
+  font-weight: 900;
+}
+.singer-detail .inner-actions .inner-heart {
+  cursor: pointer;
+}
+.singer-detail .inner-actions .inner-heart i {
+  color: #b90000;
+}
+.singer-detail .inner-play {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
-
-.inner-audio {
-  margin-left: 20px;
-  flex-grow: 1;
+.singer-detail .inner-play .inner-audio {
+  flex: 1;
 }
-
-#aplayer {
-  width: 100%;
-  height: 100%;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: flex;
-}
-
 .singer-detail .inner-avatar {
   width: 100px;
   height: 100px;
@@ -155,7 +162,7 @@
   animation-duration: 12s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  /* animation-play-state: paused; */
+  animation-play-state: paused;
 }
 @keyframes spin {
   from {

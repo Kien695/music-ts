@@ -20,7 +20,7 @@ if (aplayer) {
     autoplay: true,
   });
   const avatar = document.querySelector(".singer-detail .inner-avatar");
-  console.log(avatar);
+
   ap.on("play", function () {
     avatar.style.animationPlayState = "running";
   });
@@ -28,15 +28,26 @@ if (aplayer) {
     avatar.style.animationPlayState = "paused";
   });
 }
-// const ap = new APlayer({
-//   container: document.getElementById("aplayer"),
-//   audio: [
-//     {
-//       name: "name",
-//       artist: "artist",
-//       url: "https://backend.daca.vn/assets/audios/cat-doi-noi-sau.mp3",
-//       cover: "https://backend.daca.vn/assets/images/cat-doi-noi-sau.jpg",
-//     },
-//   ],
-// });
+
 //end APlayer
+
+//button-like
+const buttonLike = document.querySelector("[button-like]");
+if (buttonLike) {
+  buttonLike.addEventListener("click", () => {
+    const idSong = buttonLike.getAttribute("button-like");
+    const isActive = buttonLike.classList.contains("active");
+    const typeLike = isActive ? "dislike" : "like";
+    const link = `/songs/like/${typeLike}/${idSong}`;
+    const option = {
+      method: "PATCH",
+    };
+    fetch(link, option)
+      .then((res) => res.json())
+      .then((data) => {
+        const span = buttonLike.querySelector("span");
+        span.innerHTML = `${data.like} thích`;
+        buttonLike.classList.toggle("active");
+      });
+  });
+}
