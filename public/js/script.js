@@ -75,3 +75,40 @@ if (listButtonFavorite.length > 0) {
     });
   });
 }
+
+//box-search
+const boxSearch = document.querySelector(".box-search");
+if (boxSearch) {
+  const input = boxSearch.querySelector("input[name='keyword']");
+  const boxSuggest = document.querySelector(".inner-suggest");
+  input.addEventListener("keyup", () => {
+    const keyword = input.value;
+    const link = `/search/suggest?keyword=${keyword}`;
+
+    fetch(link)
+      .then((res) => res.json())
+      .then((data) => {
+        const songs = data.songs;
+        if (songs.length > 0) {
+          boxSuggest.classList.add("show");
+          const html = songs.map((song) => {
+            return `
+           <a class="inner-item" href="/songs/detail/${song.slug}">
+                <div class="inner-image"><img src="${song.avatar}" /></div>
+                <div class="inner-info">
+                    <div class="inner-title">${song.title}</div>
+                    <div class="inner-singer"></div>
+                    <i class="fa-solid fa-microphone-lines"></i> ${song.infoSinger.fullName}
+                </div>
+            </a>
+            `;
+          });
+          const boxList = boxSuggest.querySelector(".inner-list");
+          boxList.innerHTML = html.join("");
+        } else {
+          boxSuggest.classList.remove("show");
+        }
+      });
+  });
+}
+//end box-search

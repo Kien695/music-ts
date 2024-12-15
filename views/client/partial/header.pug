@@ -7,22 +7,32 @@ header.header
                     .a(href="/")
                         img(src="/img/logo1.jpg")
             .col-5 
-                form(
-                action="/search/result"
-                method="GET"
-                )
-                    div(class="form-group d-flex mb-0")
-                        input(
-                        type="text"
-                        placeholder="Nhập từ khóa..."
-                        class="form-control"
-                        name="keyword"
-                        value=keyword
-                        )
-                        button(
-                            type="submit"
-                            class="btn btn-primary"
-                            ) Tìm
+                .box-search
+                    form(
+                    action="/search/result"
+                    method="GET"
+                    )
+                        div(class="form-group d-flex mb-0")
+                            input(
+                            type="text"
+                            placeholder="Nhập từ khóa..."
+                            class="form-control"
+                            name="keyword"
+                            value=keyword
+                            )
+                            button(
+                                type="submit"
+                                class="btn btn-primary"
+                                ) Tìm
+                    .inner-suggest
+                        .inner-list 
+                            //- a(href=`/songs/detail/:slugSong` class="inner-item")
+                            //-     .inner-image 
+                            //-         img(src="https://backend.daca.vn/assets/images/cat-doi-noi-sau.jpg")
+                            //-     .inner-info 
+                            //-         .inner-title Cắt đôi nõi sầu 
+                            //-         .inner-singer 
+                            //-         <i class="fa-solid fa-microphone-lines"></i> Tăng DUy Tân
             .col-4
                 .inner-menu
                     ul 
