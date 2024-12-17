@@ -28,3 +28,22 @@ if (uploadImage) {
 }
 
 //end upload image
+//upload audio
+const uploadAudio = document.querySelector("[upload-audio]");
+if (uploadAudio) {
+  const uploadAudioInput = uploadAudio.querySelector("[upload-audio-input]");
+  const uploadAudioPlay = uploadAudio.querySelector("[upload-audio-play]");
+  const source = uploadAudio.querySelector("source");
+  // Bắt sự kiện khi người dùng chọn ảnh
+  uploadAudioInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (e.target.files.length) {
+      // Hiển thị ảnh được chọn
+      const audio = URL.createObjectURL(file);
+      source.src = audio;
+      uploadAudioPlay.load();
+    }
+  });
+}
+
+//end upload audio
