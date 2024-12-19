@@ -95,3 +95,40 @@ export const editPatch = async (req: Request, res: Response) => {
   await Song.updateOne({ _id: id }, dataSong);
   res.redirect("back");
 };
+//[get]/admin/songs/detail/:id
+export const detail = async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const song = await Song.findOne({
+    _id: id,
+    deleted: false,
+  });
+  const topic = await Topic.findOne({
+    _id: song.topicId,
+    deleted: false,
+  });
+  const singer = await Singer.findOne({
+    _id: song.singerId,
+    deleted: false,
+  }).select("fullName");
+
+  res.render("admin/page/song/detail", {
+    pageTitle: "Trang chi tiết",
+    song: song,
+    singer: singer,
+    topic: topic,
+  });
+};
+//[patch]/admin/songs/delete/:id
+export const deleted = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  await Song.updateOne(
+    {
+      _id: id,
+    },
+    {
+      deleted: true,
+    }
+  );
+  res.redirect("back");
+};

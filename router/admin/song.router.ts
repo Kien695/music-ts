@@ -25,4 +25,6 @@ router.patch(
   uploadCloud.uploadFields,
   controller.editPatch
 );
+router.get("/detail/:id", controller.detail);
+router.patch("/delete/:id", controller.deleted);
 export const songRouter: Router = router;
