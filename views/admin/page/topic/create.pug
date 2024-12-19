@@ -4,7 +4,7 @@ block main
     
     h1(class="mb-4") #{pageTitle}
     form(
-    action=`${prefixAdmin}/songs/create`
+    action=`${prefixAdmin}/topics/create`
     method="POST"
     enctype="multipart/form-data"
     )
@@ -16,29 +16,6 @@ block main
             id="title"
             name="title"
         )
-        div(class="form-group")
-            label(for="topic") Chủ đề
-            
-            select(
-                name="topicId"
-                id="topic"
-                class="form-control"
-                )
-                option(value="") --chọn chủ đề --
-                    each item in topics 
-                        option(value=item.id) #{item.title}
-                    
-        div(class="form-group")
-            label(for="topic") Ca sĩ
-            
-            select(
-                name="singerId"
-                id="singer"
-                class="form-control"
-                )
-                option(value="") --chọn ca sĩ --
-                    each item in singers
-                        option(value=item.id) #{item.fullName}
                     
         div(
             class="form-group"
@@ -59,29 +36,6 @@ block main
                 upload-image-preview 
                 class="image-preview")
                 span(close-image) x
-        div(
-            class="form-group"
-            upload-audio
-            )
-            label(for="audio") File âm thanh
-            input(
-            type="file"
-            class="form-control-file"
-            id="audio"
-            name="audio"
-            accept="audio/*"
-            upload-audio-input
-           )
-            audio(controls upload-audio-play)
-                source(src="")
-        div(class="form-group")
-            label(for="lyrics") Lời bài hát
-            textarea(
-             class="form-control"
-            id="lyrics"
-            name="lyrics"
-            rows="20"
-        )
         div(class="form-group")
             label(for="desc") Mô tả
             textarea(
