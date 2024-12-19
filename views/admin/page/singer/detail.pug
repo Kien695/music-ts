@@ -1,0 +1,27 @@
+extends ../../layouts/default.pug 
+
+block main 
+    
+    h1(class="mb-4") #{pageTitle}
+    if(singer.fullName)
+        div(class="mb-4") Chủ đề: <b>#{singer.fullName}</b>
+    
+    if(singer.avatar)
+        div(class="mb-4")
+            img(
+                src=singer.avatar
+                style="width: 100px"
+            )
+    
+    if(singer.status)
+        div(class="mb-4")
+            span Trạng thái: 
+            if(singer.status==="active")
+                span(class="badge badge-success") Hoạt động 
+            else
+                span(class="badge badge danger") Dừng hoạt động
+    
+    a(
+        href=`${prefixAdmin}/singers/edit/${singer.id}`
+        class="btn btn-warning btn-sm",
+    ) Chỉnh sửa

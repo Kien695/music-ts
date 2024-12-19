@@ -40,7 +40,7 @@ export const detail = async (req: Request, res: Response) => {
     topic: topic,
   });
 };
-//[get]/admin/topics/detail/:id
+//[get]/admin/topics/edit/:id
 export const edit = async (req: Request, res: Response) => {
   const id = req.params.id;
   const topic = await Topic.findOne({
@@ -51,7 +51,7 @@ export const edit = async (req: Request, res: Response) => {
     topic: topic,
   });
 };
-//[patch]/admin/topics/detail/:id
+//[patch]/admin/topics/editPatch/:id
 export const editPatch = async (req: Request, res: Response) => {
   const id = req.params.id;
   const topic = await Topic.updateOne(
@@ -62,7 +62,7 @@ export const editPatch = async (req: Request, res: Response) => {
   );
   res.redirect("back");
 };
-//[Patch]/admin/topics/detail/:id
+//[Patch]/admin/topics/delete/:id
 export const deleted = async (req: Request, res: Response) => {
   const id = req.params.id;
   await Topic.updateOne(
