@@ -62,7 +62,7 @@ export const editPatch = async (req: Request, res: Response) => {
   );
   res.redirect("back");
 };
-//[patch]/admin/topics/detail/:id
+//[Patch]/admin/topics/detail/:id
 export const deleted = async (req: Request, res: Response) => {
   const id = req.params.id;
   await Topic.updateOne(
