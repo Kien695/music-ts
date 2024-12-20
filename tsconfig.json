@@ -4,6 +4,11 @@
     "module": "CommonJS", //tiêu chuẩn được sử dụng trong node.js để làm việc với các module
     "removeComments": true, //xóa comment khi biên dịch sang file js
     "esModuleInterop": true, //dùng được từ khóa export thay cho require
+
     "outDir": "dist"
-  }
+  },
+  "include": [
+    "*.ts", // Bao gồm tất cả các tệp TypeScript ở thư mục gốc
+    "src/types/express-flash.d.ts" // Bao gồm cả tệp express-flash.d.ts trong thư mục types
+  ]
 }

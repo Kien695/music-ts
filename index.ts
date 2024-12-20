@@ -5,6 +5,9 @@ import path from "path";
 import clientRouter from "./router/client/index.router";
 import adminRouter from "./router/admin/index.router";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import flash from "express-flash";
+import session from "express-session";
 import methodOverride from "method-override";
 import { systemConfig } from "./config/config";
 dotenv.config();
@@ -21,6 +24,18 @@ app.use(methodOverride("_method"));
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 //tinyMCE
+//flash
+app.use(cookieParser("KIENNE"));
+app.use(
+  session({
+    secret: "your-secret-key", // Thêm secret
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }, // Thời gian hết hạn của cookie (60 giây)
+  })
+);
+app.use(flash());
+//end flash
 app.use(
   "/tinymce",
   express.static(path.join(__dirname, "node_modules", "tinymce"))
