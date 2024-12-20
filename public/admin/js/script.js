@@ -64,6 +64,7 @@ if (buttonDelete.length > 0) {
     });
   });
 }
+console.log("ok");
 //end delete item
 //show alert
 const showAlert = document.querySelector("[show-alert]");

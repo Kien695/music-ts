@@ -12,5 +12,13 @@ router.post(
   uploadCloud.uploadSingle,
   controller.createPost
 );
-
+router.get("/detail/:id", controller.detail);
+router.get("/edit/:id", controller.edit);
+router.patch(
+  "/edit/:id",
+  upload.single("avatar"),
+  uploadCloud.uploadSingle,
+  controller.editPatch
+);
+router.patch("/delete/:id", controller.deleted);
 export const accountRouter: Router = router;
