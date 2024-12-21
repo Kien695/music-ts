@@ -1,0 +1,153 @@
+extends ../../layouts/default.pug 
+include ../../mixins/alert.pug 
+
+block main 
+    h1(class="mb-4") Phân quyền
+    +alert-error(5000)
+    +alert-success(5000)
+    if(records)
+        div(data-records=records)
+        div(class="text-right")
+            button(
+                type="submit"
+                class="btn btn-primary mb-3"
+                button-submit
+            ) Cập nhật 
+        table(
+            class="table table-hover table-sm"
+            table-permissions
+        )
+            thead 
+                tr 
+                    th Tính năng 
+                    each item in records
+                        th(class="text-center") #{item.title}
+            tbody 
+
+                tr(data-name="id" class="d-none") 
+                    td
+                    each item in records
+                        td(class="text-center")
+                            input(type="text" value=item.id)
+                //-singer
+                tr 
+                    td(colspan="4")
+                        b Ca sĩ 
+                tr(data-name="singers_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="singers_create")
+                    td Thêm mới
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="singers_edit")
+                    td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="singers_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-song
+                tr 
+                    td(colspan="4")
+                        b Bài hát
+                tr(data-name="songs_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="songs_create")
+                    td Thêm mới
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="songs_edit")
+                    td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="songs_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-topic
+                tr 
+                    td(colspan="4")
+                        b Chủ đề
+                tr(data-name="topics_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="topics_create")
+                    td Thêm mới
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="topics_edit")
+                    td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="topics_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-danh sách nhóm quyền
+                tr 
+                    td(colspan="4")
+                        b Nhóm quyền
+                tr(data-name="roles_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="roles_create")
+                    td Thêm mới
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="roles_edit")
+                    td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="roles_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="roles_permission")
+                    td Phân quyền 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+    form(
+        id="form-change-permission"
+        method="POST"
+        action=`${prefixAdmin}/roles/permission?_method=PATCH`
+        class="d-none"
+    )
+        div(class="form-group")
+            input(
+                type="text"
+                class="form-control"
+                name="permission"
+            )
+    script(src="/admin/js/role.js") 

@@ -67,3 +67,22 @@ export const deleted = async (req: Request, res: Response) => {
   );
   res.redirect("back");
 };
+//[get]/admin/roles/permission
+export const permission = async (req: Request, res: Response) => {
+  const records = await Role.find({
+    deleted: false,
+  });
+  res.render("admin/page/role/permission", {
+    pageTitle: "Phân quyền",
+    records: records,
+  });
+};
+//[patch]/admin/roles/permission
+export const permissionPatch = async (req: Request, res: Response) => {
+  const permissions = JSON.parse(req.body.permission);
+  for (const item of permissions) {
+    await Role.updateOne({ _id: item.id }, { permission: item.permissions });
+  }
+  req.flash("success", "Cập nhật phân quyền thành công!");
+  res.redirect("back");
+};
