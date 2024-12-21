@@ -1,0 +1,41 @@
+extends ../../layouts/default.pug 
+include ../../mixins/alert.pug
+block main
+    
+    h1(class="mb-4") Danh sách tài khoản khách
+    +alert-success(5000)
+    .card.mb-3
+        .card-header Danh sách
+            .row 
+            table(
+                class="table table-hover.table.sm"
+
+                )
+                thead 
+
+                    tr  
+                        th STT
+                        th Họ tên
+                        th Email 
+                        th Trạng thái 
+                        th Hành động 
+                tbody 
+                    tr 
+                        td 1
+                       
+                        td Khách A
+
+                        td vana@gmail.com
+                        td
+                            a(
+                                href="javascript:;" 
+                                data-status="active" 
+                                class="badge badge-success"
+                            ) Hoạt động
+                            
+                        td
+                            button(
+                                class="btn btn-danger btn-sm ml-1"
+                                button-delete 
+                               
+                            ) Xóa tài khoản

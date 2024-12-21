@@ -7,6 +7,8 @@ import { uploadRouter } from "./upload.router";
 import { singerRouter } from "./singer.router";
 import { roleRouter } from "./role.router";
 import { accountRouter } from "./account.router";
+import { settingRouter } from "./setting-general.router";
+import { userRouter } from "./user.router";
 const adminRouter = (app: Express): void => {
   const PATH_ADMIN = `${systemConfig.prefixAdmin}`;
   app.use(`${PATH_ADMIN}/dashboard`, dashboardRouter);
@@ -16,5 +18,7 @@ const adminRouter = (app: Express): void => {
   app.use(`${PATH_ADMIN}/singers`, singerRouter);
   app.use(`${PATH_ADMIN}/roles`, roleRouter);
   app.use(`${PATH_ADMIN}/accounts`, accountRouter);
+  app.use(`${PATH_ADMIN}/settings`, settingRouter);
+  app.use(`${PATH_ADMIN}/users`, userRouter);
 };
 export default adminRouter;
