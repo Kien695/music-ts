@@ -9,6 +9,6 @@ router.get("/detail/:id", controller.detail);
 router.get("/edit/:id", controller.edit);
 router.patch("/edit/:id", controller.editPatch);
 router.patch("/delete/:id", controller.deleted);
-router.get("/permission", controller.permission);
+router.get("/permissions", controller.permission);
 router.patch("/permission", controller.permissionPatch);
 export const roleRouter: Router = router;
