@@ -1,43 +1,48 @@
 extends ../../layouts/default.pug 
 
 block main 
-    h1 Trang tổng quan
-    .row.mt-4 
-        //- .col-12 
-            //- .card.md-4 
-                //- .card-header Thông tin tài khoản 
-                //- .card-body 
-                //-     if(user.avatar)
-                //-         img(src=user.avatar
-                //-         style="height: 100px;margin-bottom:15px"
-                //-         )
-                //-     if(user.fullName)
-                //-         p Họ tên: <b>#{user.fullName}</b>
-                //-     if(user.email)
-                //-         p Email: <b>#{user.email}</b>
-                //-     if(user.phone)
-                //-         p Số điện thoại: <b>#{user.phone}</b>
-                //-     if(role.title)
-                //-         p Phân quyền: <b>#{role.title}</b>
+    if(role.permission.includes("dashboard"))
+        h1 Trang tổng quan
+        .row.mt-4 
+        
+            .col-12 
+                .card.md-4 
+                    .card-header Thông tin tài khoản 
+                    .card-body 
+                        if(user.avatar)
+                            img(src=user.avatar
+                            style="height: 100px;margin-bottom:15px"
+                            )
+                        if(user.fullName)
+                            p Họ tên: <b>#{user.fullName}</b>
+                        if(user.email)
+                            p Email: <b>#{user.email}</b>
+                        if(user.phone)
+                            p Số điện thoại: <b>#{user.phone}</b>
+                        if(role.title)
+                            p Phân quyền: <b>#{role.title}</b>
 
-        .col-6
-            .card.md-4 
-                .card-header Ca sĩ
-                .card-body 
-                    p Số lượng: <b>#{statistic.singer.total}</b>
-                    p Hoạt động: <b>#{statistic.singer.active}</b>
-                    p Dừng hoạt động: <b>#{statistic.singer.inactive}</b>
-        .col-6
-            .card.md-4 
-                .card-header Bài hát
-                .card-body 
-                    p Số lượng: <b>#{statistic.song.total}</b>
-                    p Hoạt động: <b>#{statistic.song.active}</b>
-                    p Dừng hoạt động: <b>#{statistic.song.inactive}</b>
-        .col-6
-            .card.md-4 
-                .card-header Chủ đề
-                .card-body 
-                    p Số lượng: <b>#{statistic.topic.total}</b>
-                    p Hoạt động: <b>#{statistic.topic.active}</b>
-                    p Dừng hoạt động: <b>#{statistic.topic.inactive}</b>
+            .col-6
+                .card.md-4 
+                    .card-header Ca sĩ
+                    .card-body 
+                        p Số lượng: <b>#{statistic.singer.total}</b>
+                        p Hoạt động: <b>#{statistic.singer.active}</b>
+                        p Dừng hoạt động: <b>#{statistic.singer.inactive}</b>
+            .col-6
+                .card.md-4 
+                    .card-header Bài hát
+                    .card-body 
+                        p Số lượng: <b>#{statistic.song.total}</b>
+                        p Hoạt động: <b>#{statistic.song.active}</b>
+                        p Dừng hoạt động: <b>#{statistic.song.inactive}</b>
+            .col-6
+                .card.md-4 
+                    .card-header Chủ đề
+                    .card-body 
+                        p Số lượng: <b>#{statistic.topic.total}</b>
+                        p Hoạt động: <b>#{statistic.topic.active}</b>
+                        p Dừng hoạt động: <b>#{statistic.topic.inactive}</b>
+    else 
+        h1 Bạn không có quyền truy cập
+    

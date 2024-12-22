@@ -29,6 +29,15 @@ block main
                     each item in records
                         td(class="text-center")
                             input(type="text" value=item.id)
+                //-trang tổng quan
+                tr 
+                    td(colspan="4")
+                        b Trang tổng quan 
+                tr(data-name="dashboard")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
                 //-singer
                 tr 
                     td(colspan="4")
@@ -45,6 +54,11 @@ block main
                         td(class="text-center")
                             input(type="checkbox")
 
+                tr(data-name="singers_detail")
+                    td Chi tiết 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
                 tr(data-name="singers_edit")
                     td Chỉnh sửa 
                     each item in records
@@ -70,7 +84,11 @@ block main
                     each item in records
                         td(class="text-center")
                             input(type="checkbox")
-
+                tr(data-name="songs_detail")
+                    td Chi tiết 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
                 tr(data-name="songs_edit")
                     td Chỉnh sửa 
                     each item in records
@@ -90,7 +108,11 @@ block main
                     each item in records
                         td(class="text-center")
                             input(type="checkbox")
-
+                tr(data-name="topics_detail")
+                    td Chi tiết 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
                 tr(data-name="topics_create")
                     td Thêm mới
                     each item in records
@@ -99,6 +121,11 @@ block main
 
                 tr(data-name="topics_edit")
                     td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="topics_detail")
+                    td Chi tiết 
                     each item in records
                         td(class="text-center")
                             input(type="checkbox")
@@ -122,7 +149,11 @@ block main
                     each item in records
                         td(class="text-center")
                             input(type="checkbox")
-
+                tr(data-name="roles_detail")
+                    td Chi tiết 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
                 tr(data-name="roles_edit")
                     td Chỉnh sửa 
                     each item in records
@@ -135,6 +166,62 @@ block main
                             input(type="checkbox")
                 tr(data-name="roles_permission")
                     td Phân quyền 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-admin
+                tr 
+                    td(colspan="4")
+                        b Tài khoản admin
+                tr(data-name="admins_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="admins_detail")
+                    td Chi tiết
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="admins_edit")
+                    td Chỉnh sửa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                tr(data-name="admins_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-client
+                tr 
+                    td(colspan="4")
+                        b Tài khoản khách
+                tr(data-name="clients_view")
+                    td Xem 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="clients_detail")
+                    td Chi tiết
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+
+                tr(data-name="clients_delete")
+                    td Xóa 
+                    each item in records
+                        td(class="text-center")
+                            input(type="checkbox")
+                //-trang cài đặt chung
+                tr 
+                    td(colspan="4")
+                        b Trang cài đặt chung 
+                tr(data-name="setting")
+                    td Xem 
                     each item in records
                         td(class="text-center")
                             input(type="checkbox")
