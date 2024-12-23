@@ -35,10 +35,19 @@ header.header
                             //-         <i class="fa-solid fa-microphone-lines"></i> Tăng DUy Tân
             .col-4
                 .inner-menu
-                    ul 
+                    ul  
+                            
                         li 
                             a(href="/") <i class="fa-solid fa-house"></i> Trang chủ
-                        li 
-                            a(href="/topic") <i class="fa-solid fa-music"></i> Chủ đề
-                        li 
-                            a(href="/favorite-songs") <i class="fa-solid fa-heart"></i> Yêu thích
+                        if(user)
+                            li 
+                                a(href="/topic") <i class="fa-solid fa-music"></i> Chủ đề
+                            li 
+                                a(href="/favorite-songs") <i class="fa-solid fa-heart"></i> Yêu thích
+                            li 
+                                a(href="/user/logout") Đăng xuất
+                        else
+                            li 
+                                a(href="/user/register") Đăng kí
+                            li 
+                                a(href="/user/login") Đăng nhập

@@ -9,7 +9,7 @@ export const song = async (req: Request, res: Response) => {
     deleted: false,
   });
   res.render("admin/page/song/index", {
-    pageTitle: "Trang chủ",
+    pageTitle: "Quản lý bài hát",
     songs: songs,
   });
 };
