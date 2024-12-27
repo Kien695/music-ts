@@ -46,7 +46,7 @@ export const loginPost = async (req: Request, res: Response) => {
     return;
   }
   if (md5(req.body.password) !== user.password) {
-    req.flash("success", "Mật khẩu không chính xác");
+    req.flash("error", "Mật khẩu không chính xác");
     res.redirect("back");
     return;
   }
@@ -140,4 +140,36 @@ export const resetPost = async (req: Request, res: Response) => {
   );
   req.flash("success", "Đổi mật khẩu thành công");
   res.redirect("/");
+};
+//[get]/user/info
+export const info = async (req: Request, res: Response) => {
+  const user = await User.findOne({
+    deleted: false,
+    status: "active",
+  }).select("-password");
+
+  res.render("client/page/user/info", {
+    pageTitle: "Trang thông tin cá nhân",
+    user: user,
+  });
+};
+//[get]/user/edit
+export const edit = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = await User.findOne({
+    _id: id,
+    deleted: false,
+    status: "active",
+  }).select("-password");
+
+  res.render("client/page/user/edit", {
+    pageTitle: "Chỉnh sửa thông tin cá nhân",
+    user: user,
+  });
+};
+//[get]/user/edit/id
+export const editPatch = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  await User.updateOne({ _id: id }, req.body);
+  res.redirect(`/user/info`);
 };

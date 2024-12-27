@@ -45,6 +45,10 @@ header.header
                             li 
                                 a(href="/favorite-songs") <i class="fa-solid fa-heart"></i> Yêu thích
                             li 
+                                a(href="/user/info") 
+                                    .inner-avatar
+                                        img(src=user.avatar, alt=user.fullName)
+                            li 
                                 a(href="/user/logout") Đăng xuất
                         else
                             li 

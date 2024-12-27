@@ -45,6 +45,13 @@ block main
                         p Số lượng: <b>#{statistic.topic.total}</b>
                         p Hoạt động: <b>#{statistic.topic.active}</b>
                         p Dừng hoạt động: <b>#{statistic.topic.inactive}</b>
+            .col-6
+                .card.md-4 
+                    .card-header Tài khoản client
+                    .card-body 
+                        p Số lượng: <b>#{statistic.user.total}</b>
+                        p Hoạt động: <b>#{statistic.user.active}</b>
+                        p Dừng hoạt động: <b>#{statistic.user.inactive}</b>
     else 
         h1 Bạn không có quyền truy cập
     
