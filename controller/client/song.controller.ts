@@ -83,6 +83,7 @@ export const like = async (req: Request, res: Response) => {
 //[patch]/songs/favorite/:typeFavorite/:id
 export const favorite = async (req: Request, res: Response) => {
   const idSong: string = req.params.idSong;
+  const userId = res.locals.user.id;
   const typeFavorite = req.params.typeFavorite;
   switch (typeFavorite) {
     case "favorite":
@@ -91,7 +92,7 @@ export const favorite = async (req: Request, res: Response) => {
       });
       if (!exitFavoriteSong) {
         const record = new Favorite({
-          // userId:"",
+          userId: userId,
           songId: idSong,
         });
         await record.save();
