@@ -347,3 +347,10 @@ span[close-image] {
   overflow: hidden;
 }
 /* end image preview */
+.text-center {
+  text-align: center; /* Căn giữa nội dung văn bản */
+}
+
+.mt-3 {
+  margin-top: 1rem; /* Thêm khoảng cách trên nút */
+}

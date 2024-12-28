@@ -14,4 +14,12 @@ block main
                             h5(class="card-title") #{topic.title}
                             p(class="card-text") #{topic.description}
                             a(href=`/songs/${topic.slug}` class="btn btn-primary") Xem chi tiết
-                
+        if (topics.length === 3)
+            .text-center.mt-3
+                a(href="/topic/all") 
+                    <i class="fa-solid fa-circle-arrow-down fa-3x"></i>
+        else 
+            .text-center.mt-3
+                a(href="/topic") 
+                    <i class="fa-solid fa-circle-arrow-up fa-3x"></i>
+                    
