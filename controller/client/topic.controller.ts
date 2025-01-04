@@ -13,9 +13,10 @@ export const topic = async (req: Request, res: Response) => {
       topics: topics,
     });
   } else {
-    // Render trang nếu không phải API
+    // Render trang và truyền dữ liệu chủ đề vào view
     res.render("client/page/topic/index", {
       pageTitle: "Chủ đề bài hát",
+      topics: topics, // Truyền dữ liệu chủ đề vào view
     });
   }
 };

@@ -27,6 +27,7 @@ const topic = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     else {
         res.render("client/page/topic/index", {
             pageTitle: "Chủ đề bài hát",
+            topics: topics,
         });
     }
 });
