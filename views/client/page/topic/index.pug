@@ -8,21 +8,11 @@ block main
                 +box-head(pageTitle) 
         .row.topics-container
             //- Chủ đề sẽ được thêm vào đây bằng JavaScript
-            each topic, index in topics
-                if index < 3  // Chỉ hiển thị 3 chủ đề đầu tiên
-                    .col-6.mb-3
-                        .card
-                            img(src=topic.avatar, alt=topic.title, class="card-img-top")
-                            .card-body
-                                h5.card-title= topic.title
-                                p.card-text= topic.description
-                                a(href="/songs/#{topic.slug}", class="btn btn-primary") Xem chi tiết
     .text-center.mt-3
-        a#load-more(style="display: none;")
+        a#load-more
             <i class="fa-solid fa-circle-arrow-down fa-3x"></i>
-        a#hide-topics(style="display: none;")
+        a#hide-topics
             <i class="fa-solid fa-circle-arrow-up fa-3x"></i>
-
 
 
                     
