@@ -144,8 +144,7 @@ export const resetPost = async (req: Request, res: Response) => {
 //[get]/user/info
 export const info = async (req: Request, res: Response) => {
   const user = await User.findOne({
-    deleted: false,
-    status: "active",
+    tokenUser: res.locals.user.tokenUser,
   }).select("-password");
 
   res.render("client/page/user/info", {

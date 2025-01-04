@@ -151,8 +151,7 @@ const resetPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.resetPost = resetPost;
 const info = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield user_model_1.default.findOne({
-        deleted: false,
-        status: "active",
+        tokenUser: res.locals.user.tokenUser,
     }).select("-password");
     res.render("client/page/user/info", {
         pageTitle: "Trang thông tin cá nhân",
