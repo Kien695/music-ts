@@ -6,16 +6,8 @@ export const topic = async (req: Request, res: Response) => {
     deleted: false,
   });
 
-  if (req.query.api === "true") {
-    // Trả về JSON nếu yêu cầu là API
-    res.json({
-      code: 200,
-      topics: topics,
-    });
-  } else {
-    // Render trang nếu không phải API
-    res.render("client/page/topic/index", {
-      pageTitle: "Chủ đề bài hát",
-    });
-  }
+  res.render("client/page/topic/index", {
+    pageTitle: "Chủ đề bài hát",
+    topics: topics,
+  });
 };

@@ -7,12 +7,17 @@ block main
             .col
                 +box-head(pageTitle) 
         .row.topics-container
-            //- Chủ đề sẽ được thêm vào đây bằng JavaScript
-    .text-center.mt-3
-        a#load-more
-            <i class="fa-solid fa-circle-arrow-down fa-3x"></i>
-        a#hide-topics
-            <i class="fa-solid fa-circle-arrow-up fa-3x"></i>
-
-
-                    
+            each topic in topics
+                .col-6.mb-3 
+                    div(class="card")
+                        img(src=topic.avatar)
+                        div(class="card-body")
+                            h5(class="card-title") #{topic.title}
+                            p(class="card-text") #{topic.description}
+                            a(href=`/songs/${topic.slug}` class="btn btn-primary") Xem chi tiết
+        
+        .text-center.mt-3
+            a#load-more
+                <i class="fa-solid fa-circle-arrow-down fa-3x"></i>
+            a#hide-topics
+                <i class="fa-solid fa-circle-arrow-up fa-3x"></i>

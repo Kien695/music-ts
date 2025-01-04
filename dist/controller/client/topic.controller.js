@@ -18,16 +18,9 @@ const topic = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const topics = yield topic_model_1.default.find({
         deleted: false,
     });
-    if (req.query.api === "true") {
-        res.json({
-            code: 200,
-            topics: topics,
-        });
-    }
-    else {
-        res.render("client/page/topic/index", {
-            pageTitle: "Chủ đề bài hát",
-        });
-    }
+    res.render("client/page/topic/index", {
+        pageTitle: "Chủ đề bài hát",
+        topics: topics,
+    });
 });
 exports.topic = topic;
