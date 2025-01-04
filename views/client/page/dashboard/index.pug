@@ -8,6 +8,37 @@ block main
     .container.my-3 
         .row 
             .col
-                +box-head(pageTitle) 
-        
+                +box-head("Top bài hát có lượt like cao nhất") 
+        .row 
+           
+            each song in songLikes 
+                .col-6.mb-3 
+                    div(class="song-item")
+                        div(class="inner-image")
+                            a(href=`/songs/detail/${song.slug}`)
+                                img(src=song.avatar)
+                        div(class="inner-content")
+                            div(class="inner-title")
+                                a(href=`/songs/detail/${song.slug}`) #{song.title}
+                            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> #{song.infoSinger.fullName}
+                            div(class="inner-like") <i class="fa-solid fa-thumbs-up"></i> #{song.like}
+                            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm nay
+    .container.my-3 
+        .row 
+            .col
+                +box-head("Top bài hát được nghe nhiều nhất") 
+        .row 
+           
+            each song in songListens 
+                .col-6.mb-3 
+                    div(class="song-item")
+                        div(class="inner-image")
+                            a(href=`/songs/detail/${song.slug}`)
+                                img(src=song.avatar)
+                        div(class="inner-content")
+                            div(class="inner-title")
+                                a(href=`/songs/detail/${song.slug}`) #{song.title}
+                            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> #{song.infoSinger.fullName}
+                            div(class="inner-listen") <i class="fa-solid fa-headphones"></i> #{song.listen}
+                            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm nay
         
