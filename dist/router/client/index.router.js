@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const topic_router_1 = require("./topic.router");
+const dashboard_router_1 = require("./dashboard.router");
+const song_router_1 = require("./song.router");
+const favorite_song_router_1 = require("./favorite-song.router");
+const search_router_1 = require("./search.router");
+const user_router_1 = require("./user.router");
+const setting_middleware_1 = require("../../middleware/client/setting.middleware");
+const user_middleware_1 = require("../../middleware/client/user.middleware");
+const clientRouter = (app) => {
+    app.use(setting_middleware_1.settingGeneral);
+    app.use(user_middleware_1.userMiddleware);
+    app.use("/topic", topic_router_1.topicRouter);
+    app.use("/", dashboard_router_1.dashboardRouter);
+    app.use("/songs", song_router_1.songRouter);
+    app.use("/favorite-songs", favorite_song_router_1.favoriteRouter);
+    app.use("/search", search_router_1.searchRouter);
+    app.use("/user", user_router_1.userRouter);
+};
+exports.default = clientRouter;
