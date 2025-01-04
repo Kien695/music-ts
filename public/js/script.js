@@ -179,3 +179,83 @@ if (uploadImage) {
 }
 
 //end upload image
+//xem thêm
+
+document.addEventListener("DOMContentLoaded", () => {
+  let displayedCount = 0; // Số lượng chủ đề đã hiển thị
+  const step = 3; // Số lượng chủ đề hiển thị mỗi lần
+  let allTopics = []; // Lưu toàn bộ dữ liệu chủ đề
+
+  function loadTopics() {
+    if (allTopics.length === 0) {
+      // Chỉ gọi API khi chưa có dữ liệu
+      fetch(`/topic?api=true`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.code === 200) {
+            allTopics = data.topics; // Lưu dữ liệu vào `allTopics`
+            renderTopics();
+          }
+        })
+        .catch((error) => console.error("Error loading topics:", error));
+    } else {
+      renderTopics();
+    }
+  }
+
+  function renderTopics() {
+    const container = document.querySelector(".topics-container");
+    if (!container) return;
+
+    // Xóa tất cả chủ đề cũ trước khi thêm mới
+    container.innerHTML = "";
+
+    // Hiển thị các chủ đề từ 0 đến `displayedCount + step`
+    const topicsToDisplay = allTopics.slice(0, displayedCount + step);
+    topicsToDisplay.forEach((topic) => {
+      const col = document.createElement("div");
+      col.className = "col-6 mb-3";
+      col.innerHTML = `
+        <div class="card">
+          <img src="${topic.avatar}" alt="${topic.title}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">${topic.title}</h5>
+            <p class="card-text">${topic.description}</p>
+            <a href="/songs/${topic.slug}" class="btn btn-primary">Xem chi tiết</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(col);
+    });
+
+    // Cập nhật trạng thái hiển thị
+    displayedCount += step;
+
+    // Hiển thị hoặc ẩn các nút
+    document.getElementById("load-more").style.display =
+      displayedCount >= allTopics.length ? "none" : "inline-block";
+    document.getElementById("hide-topics").style.display =
+      displayedCount > step ? "inline-block" : "none";
+  }
+
+  function hideTopics() {
+    const container = document.querySelector(".topics-container");
+    if (!container) return;
+
+    // Chỉ hiển thị lại 3 chủ đề đầu tiên
+    container.innerHTML = "";
+    displayedCount = 0;
+    renderTopics();
+  }
+
+  // Xử lý sự kiện nhấn nút "Xem thêm"
+  document.getElementById("load-more").addEventListener("click", loadTopics);
+
+  // Xử lý sự kiện nhấn nút "Ẩn bớt"
+  document.getElementById("hide-topics").addEventListener("click", hideTopics);
+
+  // Hiển thị 3 chủ đề đầu tiên khi tải trang
+  loadTopics();
+});
+
+//end xem thêm

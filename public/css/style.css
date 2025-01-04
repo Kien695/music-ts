@@ -349,8 +349,18 @@ span[close-image] {
 /* end image preview */
 .text-center {
   text-align: center; /* Căn giữa nội dung văn bản */
+  color: #004cd0;
 }
 
 .mt-3 {
-  margin-top: 1rem; /* Thêm khoảng cách trên nút */
+  margin-top: 1rem; /* Khoảng cách trên */
+}
+
+#load-more {
+  margin-right: 15px; /* Khoảng cách bên phải */
+}
+
+#hide-topics {
+  margin-left: 15px; /* Khoảng cách bên trái */
+  display: none; /* Ẩn nút "Ẩn bớt" ban đầu */
 }
